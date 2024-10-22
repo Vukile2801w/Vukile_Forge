@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 #include <memory>
 #include <bitset>
@@ -114,6 +114,15 @@ public:
         entities.emplace_back(std::move(uPtr));
         return *e;
     }
+
+    std::vector<Entity*> get_entities() {
+        std::vector<Entity*> raw_entities;
+        for (const auto& entity : entities) {
+            raw_entities.push_back(entity.get()); // Dodaj pokazivače na entitete
+        }
+        return raw_entities;
+    }
+
 
 private:
     std::vector<std::unique_ptr<Entity>> entities;

@@ -33,9 +33,10 @@ public:
 		colider.x = static_cast<int>(transform->postion.x);
 		colider.y = static_cast<int>(transform->postion.y);
 
+		// Osiguraj da koristiš transformaciju koja se koristi za stvaranje zida
 		colider.w = static_cast<int>(transform->width * transform->scale);
 		colider.h = static_cast<int>(transform->height * transform->scale);
-
 	}
+
 };
 

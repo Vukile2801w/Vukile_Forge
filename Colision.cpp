@@ -1,5 +1,6 @@
 #pragma once
 #include "Colision.h"
+#include "Colider_Component.h"
 
 bool Collision::AABB(const SDL_Rect& rect_A, const SDL_Rect& rect_B) {
 	if (
@@ -15,5 +16,15 @@ bool Collision::AABB(const SDL_Rect& rect_A, const SDL_Rect& rect_B) {
 }
 
 bool Collision::AABB(const Colider_Component& colA, const Colider_Component& colB) {
-	if (AABB(colA.collider, colB.collider))
+	if (AABB(colA.colider, colB.colider)) {
+		std::cout << colA.tag << " Hit: " << colB.tag << std::endl;
+	
+		return true;
+	}
+	else {
+
+		std::cout << colA.tag << " Not Hit: " << colB.tag << std::endl;
+
+		return false;
+	}
 }

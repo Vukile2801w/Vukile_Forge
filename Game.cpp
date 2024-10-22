@@ -14,8 +14,15 @@ Manager manager; // Ispravi ovu liniju
 
 std::vector<Colider_Component*> Game::colliders;
 
-Entity& wall = manager.Add_Entity();
-Entity& Player = manager.Add_Entity(); // Ispravi ovu liniju
+Entity& wall(manager.Add_Entity());
+
+Entity& tile0(manager.Add_Entity());
+Entity& tile1(manager.Add_Entity());
+Entity& tile2(manager.Add_Entity());
+Entity& tile3(manager.Add_Entity());
+
+Entity& Player(manager.Add_Entity()); // Ispravi ovu liniju
+
 
 Game::Game() {}
 
@@ -42,15 +49,26 @@ void Game::init(const char* title, int width, int height, bool fullscreen) {
 
     map = new Map();
 
-    Player.Add_Component<Transform_Component>(2);
+    tile0.Add_Component<Tile_Component>(200, 200, 32, 32, 0);
+    tile1.Add_Component<Tile_Component>(232, 200, 32, 32, 1);
+    tile2.Add_Component<Tile_Component>(200, 232, 32, 32, 2);
+    tile3.Add_Component<Tile_Component>(232, 232, 32, 32, 1);
+
+    tile1.Add_Component<Colider_Component>("dirt");
+    tile2.Add_Component<Colider_Component>("grass");
+    tile3.Add_Component<Colider_Component>("dirt");
+
+
+    Player.Add_Component<Transform_Component>(0, 0, 14, 6, 5);
     Player.Add_Component<Sprite_Component>("Assets/Player01.png");
     Player.Add_Component<Colider_Component>("player");
     Player.Add_Component<Keyboard_Controler>();
 
-
-    wall.Add_Component<Transform_Component>(300, 300, 32, 2, 1);
+    
+    wall.Add_Component<Transform_Component>(300, 300, 32, 32, 1);
     wall.Add_Component<Sprite_Component>("Assets/Tile_Map/dirt.png");
     wall.Add_Component<Colider_Component>("wall");
+    
 }
 
 void Game::handleEvents() {
@@ -82,21 +100,32 @@ void Game::update() {
 
     manager.refresh();
     manager.update();
-   
-    if (Collision::AABB(Player.get_Component<Colider_Component>().colider, wall.get_Component<Colider_Component>().colider)) {
-        Player.get_Component<Transform_Component>().velocity * -1;
-        std::cout << "Wall Hit!" << std::endl;
-    }
 
+    Colider_Component& player_colider = Player.get_Component<Colider_Component>();
+
+    for (auto& e : manager.get_entities()) {
+        if (e->has_component<Colider_Component>()) {
+            Colider_Component& e_colider = e->get_Component<Colider_Component>();
+
+            if (e_colider.tag != player_colider.tag) {
+                bool is_colided = Collision::AABB(player_colider.colider, e_colider.colider);
+                if (is_colided) {
+                    // Reaguj na koliziju (npr. resetuj poziciju igrača, ili onemogući kretanje)
+                    Player.get_Component<Transform_Component>().velocity *= Vector2(-1, -1);
+                }
+            }
+        }
+    }
 }
 
 void Game::render() {
     SDL_RenderClear(renderer);
 
-    map->Draw_Map();
+    //map->Draw_Map();
 
 
     manager.draw();
+
 
     SDL_RenderPresent(renderer);
 }
