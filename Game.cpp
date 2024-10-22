@@ -12,6 +12,8 @@ SDL_Event Game::event;
 
 Manager manager; // Ispravi ovu liniju
 
+std::vector<Colider_Component*> Game::colliders;
+
 Entity& wall = manager.Add_Entity();
 Entity& Player = manager.Add_Entity(); // Ispravi ovu liniju
 
