@@ -86,7 +86,7 @@ Vector2& Vector2::operator*(const int& i) {
 Vector2& Vector2::Zero() {
 	this->x = 0;
 	this->y = 0;
-
+	return *this;
 }
 
 std::ostream& operator << (std::ostream& stream, const Vector2& vec) {

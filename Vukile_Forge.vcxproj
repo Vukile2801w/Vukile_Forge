@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2_image-2.0.1\include;C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2-2.30.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2_image-2.0.1\include;C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2-2.30.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2-2.30.7\lib\x64;C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2_image-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2-2.30.7\lib\x64;C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2_image-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDl2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -121,14 +121,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2_image-2.0.1\include;C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2-2.30.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2_image-2.0.1\include;C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2-2.30.7\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2-2.30.7\lib\x64;C:\Users\User\Desktop\vuk\programiranje\c++\lib\SDL2_image-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2-2.30.7\lib\x64;C:\Users\User\Desktop\vuk\programiranje\c++\Game_Engine\Vukile_Forge\libs\SDL2_image-2.0.1\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDl2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -142,6 +142,7 @@
     <ClInclude Include="Keyboard_Controler.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Tile_Component.h" />
     <ClInclude Include="Transform_Component.h" />
     <ClInclude Include="Sprite_Component.h" />
     <ClInclude Include="Texture_Manager.h" />

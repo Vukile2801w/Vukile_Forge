@@ -15,8 +15,7 @@ public:
     int speed = 1;
 
     Transform_Component(int sc) {
-        postion.x = 0.0f;
-        postion.y = 0.0f;
+        postion.Zero();
         
         scale = sc;
     }
@@ -36,8 +35,7 @@ public:
     }
 
     Transform_Component() {
-        postion.x = 0.0f;
-        postion.y = 0.0f;
+        postion.Zero();
     }
 
     
@@ -48,8 +46,7 @@ public:
     int y() const { return postion.y; }
 
     void init() override {
-        velocity.x = 0;
-        velocity.y = 0;
+        velocity.Zero();
     }
 
     void update() override {

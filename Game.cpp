@@ -46,7 +46,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen) {
     Player.Add_Component<Keyboard_Controler>();
 
 
-    wall.Add_Component<Transform_Component>(300, 300, 300, 20, 1);
+    wall.Add_Component<Transform_Component>(300, 300, 32, 2, 1);
     wall.Add_Component<Sprite_Component>("Assets/Tile_Map/dirt.png");
     wall.Add_Component<Colider_Component>("wall");
 }
@@ -82,7 +82,7 @@ void Game::update() {
     manager.update();
    
     if (Collision::AABB(Player.get_Component<Colider_Component>().colider, wall.get_Component<Colider_Component>().colider)) {
-        Player.get_Component<Transform_Component>().scale += .1;
+        Player.get_Component<Transform_Component>().velocity * -1;
         std::cout << "Wall Hit!" << std::endl;
     }
 
