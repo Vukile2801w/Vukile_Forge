@@ -23,8 +23,6 @@ bool Collision::AABB(const Colider_Component& colA, const Colider_Component& col
 	}
 	else {
 
-		std::cout << colA.tag << " Not Hit: " << colB.tag << std::endl;
-
 		return false;
 	}
 }

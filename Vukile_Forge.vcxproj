@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Colision.cpp" />
+    <ClCompile Include="ECS.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game_Object.cpp" />
     <ClCompile Include="main.cpp" />

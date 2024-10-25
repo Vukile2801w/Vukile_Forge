@@ -19,13 +19,13 @@ public:
         tile_id = id;
 
         switch (tile_id) {
-        case 0:
+        case 1:
             path = "Assets/Tile_Map/water.png"; // Jednostavno dodeli string
             break;
-        case 1:
+        case 2:
             path = "Assets/Tile_Map/dirt.png";
             break;
-        case 2:
+        case 3:
             path = "Assets/Tile_Map/grass.png";
             break;
         default:

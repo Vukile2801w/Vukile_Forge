@@ -21,10 +21,13 @@ public:
 	void render();
 	void clean();
 
+	static void Add_Tile(int id, int x, int y);
 	static SDL_Renderer* renderer;
 	static SDL_Event event;
 
 	static std::vector<Colider_Component*> colliders;
+
+	
 
 private:
 	bool isRunning = false;

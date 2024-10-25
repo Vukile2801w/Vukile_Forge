@@ -33,6 +33,9 @@ public:
 					transform->velocity.x = 1;
 					break;
 
+				case SDLK_ESCAPE:
+					break;
+
 				default:
 					break;
 			}
@@ -52,7 +55,7 @@ public:
 			case SDLK_a:
 				transform->velocity.x = 0;
 				break;
-
+				 
 			case SDLK_d:
 				transform->velocity.x = 0;
 				break;
