@@ -51,11 +51,11 @@ void Game::init(const char* title, int width, int height, bool fullscreen) {
     Map::Load_Map("Assets/Tile_Map/map.map", 60, 34);
     
 
-    Player.Add_Component<Transform_Component>(0, 0, 14, 6, 5);
-    Player.Add_Component<Sprite_Component>("Assets/Player01.png");
+    Player.Add_Component<Transform_Component>(0, 0, 60, 27, 1.6);
+    Player.Add_Component<Sprite_Component>("Assets/Player/Player_Anim.png", true);
     Player.Add_Component<Colider_Component>("player");
-    Player.Add_Component<Keyboard_Controler>();
     Player.Add_Group(groupPlayer);
+    Player.Add_Component<Keyboard_Controler>();
     
     wall.Add_Component<Transform_Component>(300, 300, 32, 32, 1);
     wall.Add_Component<Sprite_Component>("Assets/Tile_Map/dirt.png");

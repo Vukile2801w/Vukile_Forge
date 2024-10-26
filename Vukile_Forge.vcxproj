@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Colider_Component.h" />
     <ClInclude Include="Colision.h" />
     <ClInclude Include="Components.h" />

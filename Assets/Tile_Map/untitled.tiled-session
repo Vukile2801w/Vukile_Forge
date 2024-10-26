@@ -3,10 +3,19 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "map.map",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "map.map": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 728,
+                "y": 676
+            }
+        },
         "sprite_map.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -17,10 +26,13 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 60,
     "openFiles": [
+        "map.map",
+        "sprite_map.tsx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
-        "sprite_map.tsx"
+        "sprite_map.tsx",
+        "map.map"
     ],
     "tileset.lastUsedFormat": "tsx"
 }

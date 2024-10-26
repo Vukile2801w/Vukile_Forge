@@ -10,7 +10,7 @@ public:
 
     int height = 32;
     int width = 32;
-    int scale = 1;
+    float scale = 1;
 
     int speed = 3;
 
@@ -25,7 +25,7 @@ public:
         postion.y = y;
     }
 
-    Transform_Component(float x, float y, int h, int w, int scale) {
+    Transform_Component(float x, float y, int h, int w, float scale) {
         postion.x = x;
         postion.y = y;
 
