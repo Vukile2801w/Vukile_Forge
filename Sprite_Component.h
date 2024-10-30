@@ -17,6 +17,8 @@ private:
     int frames = 0;
     int speed = 100;
 
+    size_t anim_id;
+
 public:
 
     int anim_index = 0;
@@ -37,13 +39,11 @@ public:
 
         animated = is_Animated;
 
-        Animation idle = Animation(0, 12, 100, Vector2(26, 60), Vector2(0, 0));
-        Animation eat = Animation(1, 10, 100, Vector2(25, 61), Vector2(0, 61));
-        Animation dying = Animation(2, 6, 150, Vector2(26, 59), Vector2(0, 122));
+        Animation walk = Animation(0, 12, 100, Vector2(27, 60), Vector2(0, 0));
+        Animation idle = Animation(1, 10, 150, Vector2(27, 61), Vector2(0, 62));
 
         animations.emplace("Idle", idle);
-        animations.emplace("Eat", eat);
-        animations.emplace("Dying", dying);
+        animations.emplace("Walk", walk);
 
 
         Play("Idle");
@@ -80,10 +80,12 @@ public:
     void update() override {
         if (animated) {
             // Izračunaj trenutni frejm prema brzini
+            
             current_frame = static_cast<int>((SDL_GetTicks() / speed) % frames);
 
             // Podesi src_rect.x tako da bude precizno pomeren na odgovarajući frejm
             src_rect.x = src_rect.w * current_frame + animations[anim_name].offset_anim.x;
+            
         }
 
         // Ažuriraj y koordinate prema indeksu animacije
@@ -101,25 +103,30 @@ public:
     }
 
     void Play(const char* anim_name) {
+        
         auto it = animations.find(anim_name);
         if (it != animations.end()) {
-            frames = it->second.frames;
-            anim_index = it->second.index;
-            speed = it->second.speed;
+            if (it->second.id != anim_id) {
+                frames = it->second.frames;
+                anim_index = it->second.index;
+                speed = it->second.speed;
 
-            // Postavi širinu i visinu jednog frejma animacije
-            src_rect.w = it->second.size_frame.x;
-            src_rect.h = it->second.size_frame.y;
+                anim_id = it->second.id;
 
-            // Postavi ofset animacije
-            src_rect.x = it->second.offset_anim.x;
-            src_rect.y = it->second.offset_anim.y;
+                // Postavi širinu i visinu jednog frejma animacije
+                src_rect.w = it->second.size_frame.x;
+                src_rect.h = it->second.size_frame.y;
 
-            // Resetuj početnu poziciju da izbegnemo klizanje
-            current_frame = 0;
+                // Postavi ofset animacije
+                src_rect.x = it->second.offset_anim.x;
+                src_rect.y = it->second.offset_anim.y;
+
+                // Resetuj početnu poziciju da izbegnemo klizanje
+                current_frame = 0;
+            }
+            else {
+                std::cerr << "Animation not found: " << anim_name << std::endl;
         }
-        else {
-            std::cerr << "Animation not found: " << anim_name << std::endl;
         }
     }
 

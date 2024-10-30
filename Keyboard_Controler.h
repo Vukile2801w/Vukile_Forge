@@ -1,8 +1,7 @@
-#pragma once
+﻿#pragma once
 #include "Game.h"
 #include "ECS.h"
 #include "Components.h"
-
 
 class Keyboard_Controler : public Component
 {
@@ -16,35 +15,35 @@ public:
 	}
 
 	void update() override {
-
 		if (Game::event.type == SDL_KEYDOWN) {
 			switch (Game::event.key.keysym.sym)
 			{
-				case SDLK_w:
-					transform->velocity.y = -1;
-					sprite->Play("Idle");
-					break;
+			case SDLK_w:
+				transform->velocity.y = -1;
+				sprite->Play("Walk");
+				break;
 
-				case SDLK_s:
-					transform->velocity.y = 1;
-					sprite->Play("Idle");
-					break;
+			case SDLK_s:
+				transform->velocity.y = 1;
+				sprite->Play("Walk");
+				break;
 
-				case SDLK_a:
-					transform->velocity.x = -1;
-					sprite->Play("Idle");
-					break;
+			case SDLK_a:
+				transform->velocity.x = -1;
+				sprite->Play("Walk");
+				break;
 
-				case SDLK_d:
-					transform->velocity.x = 1;
-					sprite->Play("Idle");
-					break;
+			case SDLK_d:
+				transform->velocity.x = 1;
+				sprite->Play("Walk");
+				break;
 
-				case SDLK_ESCAPE:
-					break;
+			case SDLK_ESCAPE:
+				// Event za izlaz iz igre može biti obrađen ovde
+				break;
 
-				default:
-					break;
+			default:
+				break;
 			}
 		}
 
@@ -52,34 +51,23 @@ public:
 			switch (Game::event.key.keysym.sym)
 			{
 			case SDLK_w:
-				transform->velocity.y = 0;
-				sprite->Play("Dying");
-				break;
-
 			case SDLK_s:
 				transform->velocity.y = 0;
-				sprite->Play("Dying");
 				break;
 
 			case SDLK_a:
-				transform->velocity.x = 0;
-				sprite->Play("Dying");
-				break;
-				 
 			case SDLK_d:
 				transform->velocity.x = 0;
-				sprite->Play("Dying");
 				break;
 
 			default:
-				sprite->Play("Dying");
 				break;
 			}
+
+			// Pokreni "Idle" animaciju samo ako su sve brzine na nuli
+			if (transform->velocity.x == 0 && transform->velocity.y == 0) {
+				sprite->Play("Idle");
+			}
 		}
-
 	}
-
-private:
-
 };
-
